@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Movies & TV Explorer</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo">CineScope</h1>
+      <form id="searchForm" class="search-form" aria-label="Search movies and TV shows">
+        <input id="query" type="search" placeholder="Search movies or TV shows..." required />
+        <select id="type">
+          <option value="movie">Movies</option>
+          <option value="tv">TV Shows</option>
+        </select>
+        <button type="submit" class="btn">Search</button>
+      </form>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="controls">
+      <button id="popularMovies" class="chip">Popular Movies</button>
+      <button id="popularTv" class="chip">Popular TV</button>
+    </section>
+
+    <section id="results" class="grid"></section>
+
+    <div id="pagination" class="pagination"></div>
+  </main>
+
+  <!-- Detail modal -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true">
+      <button id="closeModal" class="modal-close" aria-label="Close">✕</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">Built with TMDB • Demo UI — extend as needed.</div>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
