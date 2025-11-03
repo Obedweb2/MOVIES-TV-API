@@ -1,0 +1,203 @@
+:root{
+  --bg: #0f1724;
+  --card: #0b1220;
+  --muted: #94a3b8;
+  --accent: #ff6b6b;
+  --glass: rgba(255,255,255,0.04);
+  --radius: 12px;
+  --gap: 1rem;
+  --container: 1100px;
+  --max-w: 1200px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg,#071021 0%, #081325 60%);
+  color:#e6eef8;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.4;
+  padding-bottom:4rem;
+}
+
+.container{
+  width:min(96%,var(--container));
+  margin:0 auto;
+}
+
+/* Header */
+.site-header{
+  padding:1.25rem 0;
+  border-bottom:1px solid rgba(255,255,255,0.03);
+  backdrop-filter: blur(6px);
+}
+.header-inner{
+  display:flex;
+  gap:1rem;
+  align-items:center;
+  justify-content:space-between;
+}
+.logo{
+  margin:0;
+  font-weight:700;
+  letter-spacing:0.6px;
+  color:var(--accent);
+  font-size:1.35rem;
+}
+
+/* Search */
+.search-form{
+  display:flex;
+  gap:0.5rem;
+  align-items:center;
+}
+.search-form input[type="search"]{
+  background:var(--glass);
+  border:1px solid rgba(255,255,255,0.04);
+  color: inherit;
+  padding:0.6rem 0.75rem;
+  border-radius:10px;
+  min-width:260px;
+  outline:none;
+  transition:box-shadow .18s ease;
+}
+.search-form select{
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.04);
+  color:var(--muted);
+  padding:0.5rem;
+  border-radius:10px;
+}
+.btn{
+  background:linear-gradient(90deg,var(--accent),#ff9a9a);
+  border:none;
+  padding:0.6rem 0.9rem;
+  color:#071021;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:600;
+  box-shadow:0 6px 18px rgba(255,107,107,0.12);
+}
+
+/* Controls */
+.controls{ margin:1rem 0; display:flex; gap:0.5rem; align-items:center;}
+.chip{
+  background:rgba(255,255,255,0.03);
+  color:var(--muted);
+  border:1px solid rgba(255,255,255,0.03);
+  padding:0.45rem 0.7rem;
+  border-radius:999px;
+  cursor:pointer;
+}
+
+/* Grid */
+.grid{
+  display:grid;
+  gap:var(--gap);
+  grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
+  margin-top:1rem;
+}
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:var(--radius);
+  overflow:hidden;
+  transition:transform .18s ease, box-shadow .18s ease;
+  border:1px solid rgba(255,255,255,0.03);
+  cursor:pointer;
+  display:flex;
+  flex-direction:column;
+}
+.card:hover{ transform:translateY(-6px); box-shadow: 0 18px 40px rgba(2,6,23,0.6); }
+.poster{
+  width:100%;
+  aspect-ratio:2/3;
+  object-fit:cover;
+  display:block;
+  background:linear-gradient(180deg,#0b1220,#071021);
+}
+.card-body{
+  padding:0.75rem;
+  display:flex;
+  gap:0.5rem;
+  flex-direction:column;
+  min-height:90px;
+}
+.title{
+  font-size:0.95rem;
+  margin:0;
+  color:#eaf3ff;
+}
+.meta{ color:var(--muted); font-size:0.85rem; }
+
+/* Pagination */
+.pagination{
+  display:flex;
+  gap:0.5rem;
+  justify-content:center;
+  margin:1.25rem 0;
+  align-items:center;
+}
+.page-btn{
+  background:transparent;
+  color:var(--muted);
+  border:1px solid rgba(255,255,255,0.03);
+  padding:0.45rem 0.6rem;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+/* Modal */
+.modal{
+  position:fixed;
+  inset:0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(180deg, rgba(2,6,23,0.6), rgba(2,6,23,0.85));
+  z-index:50;
+  padding:1rem;
+}
+.modal.show{ display:flex; }
+.modal-content{
+  width:min(100%,1000px);
+  max-height:90vh;
+  overflow:auto;
+  background:linear-gradient(180deg,#071021,#081325);
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,0.04);
+  padding:1rem;
+  position:relative;
+}
+.modal-close{
+  position:absolute;
+  right:12px;
+  top:12px;
+  background:transparent;
+  border:none;
+  color:var(--muted);
+  font-size:1.2rem;
+  cursor:pointer;
+}
+
+/* Footer */
+.site-footer{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  padding:0.6rem 0;
+  text-align:center;
+  background:linear-gradient(180deg, transparent, rgba(2,6,23,0.6));
+  color:var(--muted);
+  font-size:0.9rem;
+}
+
+/* Responsive tweaks */
+@media (max-width:700px){
+  .header-inner{flex-direction:column; align-items:stretch; gap:0.75rem}
+  .search-form{ width:100%; }
+  .search-form input{ min-width:120px; flex:1 }
+}
